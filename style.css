@@ -1,0 +1,60 @@
+/* 모카무스 컬러 #a47864 */
+/* 기본바탕 색 #debdae */
+
+
+
+/* import google font - Red+Hat+Display */
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Red Hat Display", sans-serif;
+}
+body {
+    color: #fff;
+}
+
+.header{
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    padding: 20px 10%;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 32px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    filter: drop-shadow(0 0 5px #742f0e);
+}
+
+.navbar a {
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 25px;
+    transition: .3s;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: #a47864;
+    padding: 10px;
+    border-bottom: 1.4px solid #a47864;
+}
+
+.main {
+    min-height: 100vh;
+    background-color: #debdae;
+    background-size: cover;
+    background-position: center;
+}
