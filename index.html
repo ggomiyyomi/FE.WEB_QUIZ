@@ -12,10 +12,13 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!-- Fontawesome CDN Link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+
+
 </head>
 <body>
     
     <main class="main">
+        <!-- 헤더 -->
         <header class="header">
             <a href="#" class="logo">QUIZ.</a>
 
@@ -27,15 +30,70 @@
             </nav>
         </header>
 
+        <div class="container">
 
-        <section class="home">
-            <div class="home-content">
-                <h1>QUIZ QUIZ LET'S QUIZ</h1>
-                <p>Welcome to the 'QUIZ QUIZ LET'S QUIZ'! </p>
-                <button class="start-btn">Start QUIZ</button>
-            </div>
-        </section>
+            <!-- 퀴즈 -->
+            <section class="quiz-section">
+                <div class="quiz-box">
+                    <h1>Quiz</h1>
+                    <div class="quiz-header">
+                        <span>Quiz Tutorials</span>
+                        <span class="header-score">Score: 0 / 5</span>
+                    </div>
+
+                    <!-- 문제 -->
+                    <h2 class="question-text">What does HTML stand for?</h2>
+
+                    <!-- 사지선다 -->
+                    <div class="option-list">
+                        <div class="option">
+                            <span>A. Hyper Type Multi Language</span>
+                        </div>
+                        <div class="option">
+                            <span>B. Hyper Text Multiple Language</span>
+                        </div>
+                        <div class="option">
+                            <span>C. Hyper Text Markup Language</span>
+                        </div>
+                        <div class="option">
+                            <span>D. Home Text Multi Language</span>
+                        </div>
+                    </div>
+
+                    <div class="quiz-footer">
+                        <span class="question-total">1 fo 5 Questions</span>
+                        <button class="next-btn">Next</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 첫 화면 -->
+            <section class="home">
+                <div class="home-content">
+                    <h1>QUIZ QUIZ LET'S QUIZ</h1>
+                    <p>Welcome to the 'QUIZ QUIZ LET'S QUIZ'! </p>
+                    <button class="start-btn">Start QUIZ</button>
+                </div>
+            </section>
+        </div>
     </main>
+
+    <!-- 퀴즈가이드 팝업 -->
+    <div class="popup-info">
+        <h2>Quiz Guide</h2>
+        <span class="info"> 1. Aliquam viverra dolor vel volutpat tristique. </span>
+        <span class="info"> 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit. </span>
+        <span class="info"> 3. Donec in nunc non dui finibus feugiat. </span>
+        <span class="info"> 4. Nunc commodo tellus eget odio commodo, vitae consequat ante dignissim. </span>
+        <span class="info"> 5. Fusce non sapien vulputate, consectetur urna pulvinar, pulvinar erat. </span>
+        
+        <div class="btn-group">
+            <button class="info-btn exit-btn">Exit Quiz</button>
+            <a href="#" class="info-btn continue-btn">Continue</a>
+        </div>
+    </div>
+
+
 
     <script src="questions.js"></script>
     <script src="script.js"></script>
