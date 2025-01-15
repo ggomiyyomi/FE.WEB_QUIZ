@@ -211,7 +211,7 @@ body {
 .quiz-section {
     position: relative;
     left: -50%;
-    /* left: 0; */
+    /* left: 0; 위치 조정하면서 결과창,이전창 등 만들기*/
     width: 100%;
     background: #a47864;
     display: flex;
@@ -235,6 +235,11 @@ body {
     border-radius: 6px;
     flex-direction: column;
     padding: 20px 30px;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(.9);
+    transition: 3s ease;
+    transition-delay: 0s;
 }
 
 .quiz-section .quiz-box.active {
@@ -349,3 +354,110 @@ body {
     background: #742f0e;
     border-color: #742f0e;
 }
+
+
+/* 결과박스 */
+.quiz-section .result-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(.9);
+    width: 500px;
+    background: transparent;
+    border: 2px solid #824426;
+    border-radius: 6px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: .3s ease;
+}
+
+.quiz-section .result-box.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%,-50%) scale(1);
+}
+
+.result-box h2 {
+    font-size: 52px;
+}
+
+.result-box .percentage-container {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0 40px;
+}
+
+.percentage-container .circular-progress {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    background: conic-gradient(#824426 3.6deg, rgba(255, 255,255, .1) 0deg);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 안쪽 동그라미 */
+.percentage-container .circular-progress::before {
+    content: '';
+    position: absolute;
+    width: 210px;
+    height: 210px;
+    background-color: #a47864;
+    border-radius: 50%;
+}
+
+.circular-progress .progress-value {
+    /* 동그라미 위로 글씨보이게 위치 상대적으로 */
+    position: relative; 
+    font-size: 45px;
+    font-weight: 600;
+}
+
+.percentage-container .score-text {
+    font-size: 26px;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+
+.result-box .buttons {
+    display: flex;
+}
+
+.buttons button {
+    width: 130px;
+    height: 47px;
+    background: #824426;
+    border: 2px solid #824426;
+    outline: none;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 20px 20px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.buttons button:nth-child(1):hover {
+    background: #742f0e;
+    border-color: #742f0e;
+}
+
+.buttons button:nth-child(2) {
+    background: transparent;
+    color: #824426;
+}
+.buttons button:nth-child(2):hover {
+    background: #824426;
+    color: #fff;
+}
+

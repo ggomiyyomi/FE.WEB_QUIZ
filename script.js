@@ -5,6 +5,9 @@ const main = document.querySelector('.main');
 const continueBtn = document.querySelector('.continue-btn');
 const quizSection = document.querySelector('.quiz-section');
 const quizBox = document.querySelector('.quiz-box');
+const resultBox = document.querySelector('.result-box');
+const tryAgainBtn = document.querySelector('.tryAgain-btn');
+const goHomeBtn = document.querySelector('.goHome-btn');
 
 
 startBtn.onclick = () => {
@@ -22,11 +25,38 @@ continueBtn.onclick = () => {
     popupInfo.classList.remove('active');
     main.classList.remove('active');
     quizBox.classList.add('active');
-
-
+    
+    
     showQuestions(0);
     questionCounter(1);
     headerScore();
+}
+
+//다시하기 버튼 누르면 다시 처음 퀴즈창화면으로
+tryAgainBtn.onclick = () => {
+    quizBox.classList.add('active');
+    nextBtn.classList.remove('active');
+    resultBox.classList.remove('active');
+
+    questionCount = 0;
+    questionNumb = 1;
+    userScore = 0;
+    showQuestions(questionCount);
+    questionCounter(questionNumb);
+
+    headerScore();
+}
+
+goHomeBtn.onclick = () => {
+    quizSection.classList.remove('active');
+    nextBtn.classList.remove('active');
+    resultBox.classList.remove('active');
+
+    questionCount = 0;
+    questionNumb = 1;
+    userScore = 0;
+    showQuestions(questionCount);
+    questionCounter(questionNumb);
 }
 
 let questionCount = 0;
@@ -46,7 +76,8 @@ nextBtn.onclick = () => {
         nextBtn.classList.remove('active');
     }
     else {
-        console.log('Question Completed');
+        // console.log('Question Completed');
+        showResultBox();
     }
 }
 
@@ -113,4 +144,32 @@ function questionCounter(index) {
 function headerScore() {
     const headerScoreText = document.querySelector('.header-score');
     headerScoreText.textContent = `Score: ${userScore} / ${questions.length}`;
+}
+
+function showResultBox() {
+    quizBox.classList.remove('active');
+    resultBox.classList.add('active');
+
+    const scoreText = document.querySelector('.score-text');
+    scoreText.textContent = `Your Score ${userScore} out of ${questions.length}`;
+
+
+    // 원형 그래프
+    const circularProgress = document.querySelector('.circular-progress');
+    const progressValue = document.querySelector('.progress-value');
+    let progressStartValue = -1;
+    let progressEndValue = (userScore/questions.length)*100;
+    let speed = 20;
+
+    let progress = setInterval(() => {
+        progressStartValue++;
+
+        progressValue.textContent = `${progressStartValue} %`;
+        circularProgress.style.background = `conic-gradient(#824426 ${progressStartValue * 3.6}deg, rgba(255, 255,255, .1) 0deg)`;
+
+
+        if(progressStartValue == progressEndValue) {
+            clearInterval(progress);
+        }
+    },speed);
 }
